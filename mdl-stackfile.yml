@@ -47,7 +47,6 @@ services:
       mode: replicated
       replicas:  1
       placement:
-        max_replicas_per_node: 2
         constraints: 
           - node.role == worker
           - node.hostname == worker1
@@ -82,7 +81,7 @@ services:
         - "traefik.http.routers.moodle.entrypoints=web"
         - "traefik.http.services.moodle.loadbalancer.server.port=8181"
       mode: replicated
-      replicas:  4
+      replicas:  1
       placement:
         max_replicas_per_node: 4
         constraints: 
@@ -102,18 +101,6 @@ networks:
 
 volumes:
   mariadb_data_swm:
-    driver: vieux/sshfs
-    driver_opts:
-      sshcmd: "root@192.168.56.10:/var/mariadb_data"
-      allow_other: ""
   moodle_data_swm:
-    driver: vieux/sshfs
-    driver_opts:
-      sshcmd: "root@192.168.56.10:/var/moodle_data/moodle"
-      allow_other: ""
   moodledata_data_swm:
-    driver: vieux/sshfs
-    driver_opts:
-      sshcmd: "root@192.168.56.10:/var/moodle_data/moodledata"
-      allow_other: ""  
       
