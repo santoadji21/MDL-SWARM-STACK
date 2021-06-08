@@ -10,4 +10,3 @@ network:
 			docker network create -d overlay database
 
 # docker service ps --filter "desired-state=running" 
-# Mariadb replication service
