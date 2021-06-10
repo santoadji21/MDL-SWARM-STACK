@@ -53,6 +53,7 @@ services:
           - node.hostname == ip-172-31-24-100
     networks:
      - database
+     - traefik-proxy
 
   moodle:
     image: adji21/moodle:port-8181
@@ -75,6 +76,8 @@ services:
     volumes:
      - "moodle_data_swm:/bitnami/moodle"
      - "moodledata_data_swm:/bitnami/moodledata"
+    depends_on:
+     - mariadb
     deploy:
       labels:
         - "traefik.enable=true"
