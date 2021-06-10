@@ -50,10 +50,9 @@ services:
       placement:
         constraints: 
           - node.role == worker
-          - node.hostname == ip-172-31-24-100
+          - node.hostname == ip-172-31-39-63 
     networks:
      - database
-     - traefik-proxy
 
   moodle:
     image: adji21/moodle:port-8181
@@ -81,7 +80,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.moodle.rule=Host(`18.140.71.10`)"
+        - "traefik.http.routers.moodle.rule=Host(`54.179.90.177`)"
         - "traefik.http.routers.moodle.entrypoints=web"
         - "traefik.http.services.moodle.loadbalancer.server.port=8181"
       mode: replicated
@@ -90,7 +89,7 @@ services:
         max_replicas_per_node: 4
         constraints: 
           - node.role == worker
-          - node.hostname == ip-172-31-30-12
+          - node.hostname == ip-172-31-46-180
     networks:
      - database
      - traefik-proxy
