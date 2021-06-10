@@ -59,8 +59,8 @@ services:
     environment:
      - PHP_UPLOAD_MAX_FILESIZE=2048M
      - PHP_POST_MAX_SIZE=1024M
-     - MOODLE_SKIP_BOOTSTRAP=yes
-     - MOODLE_SKIP_INSTALL=yes
+     #- MOODLE_SKIP_BOOTSTRAP=yes
+     #- MOODLE_SKIP_INSTALL=yes
      - BITNAMI_DEBUG=true
      - MOODLE_DATABASE_HOST=mariadb
      - MOODLE_DATABASE_PORT_NUMBER=3306
@@ -78,7 +78,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.moodle.rule=Host(`192.168.56.10`)"
+        - "traefik.http.routers.moodle.rule=Host(`18.140.71.10`)"
         - "traefik.http.routers.moodle.entrypoints=web"
         - "traefik.http.services.moodle.loadbalancer.server.port=8181"
       mode: replicated
