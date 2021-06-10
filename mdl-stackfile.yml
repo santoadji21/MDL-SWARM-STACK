@@ -50,7 +50,7 @@ services:
       placement:
         constraints: 
           - node.role == worker
-          - node.hostname == worker1
+          - node.hostname == ip-172-31-24-100
     networks:
      - database
 
@@ -87,7 +87,7 @@ services:
         max_replicas_per_node: 4
         constraints: 
           - node.role == worker
-          - node.hostname == worker2
+          - node.hostname == ip-172-31-30-12
     networks:
      - database
      - traefik-proxy
