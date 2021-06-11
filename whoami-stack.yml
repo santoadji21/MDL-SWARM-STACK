@@ -42,6 +42,7 @@ services:
       labels:
         # traefik.enable=true and constraint label are needed because
         # of the restrictions we enforced in our traefik configuration
+        - traefik.docker.network=traefik_default
         - traefik.enable=true
         - traefik.http.services.whoami.loadbalancer.server.port=80
         - "traefik.http.routers.whoami.rule=Host(`13.212.13.171`)"
