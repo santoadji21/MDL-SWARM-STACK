@@ -5,7 +5,7 @@ services:
     image: "traefik:v2.4"
     container_name: "traefik"
     networks:
-      - proxy
+      - traefik_default
     command:
       - --log.level=DEBUG
       - --api.insecure=true
@@ -17,7 +17,7 @@ services:
       - --providers.docker=true
       - --providers.docker.swarmMode=true
       - --providers.docker.exposedbydefault=false
-      - --providers.docker.network=proxy
+      - --providers.docker.network=traefik_default
     ports:
       - "80:80"
       - "8080:8080"
@@ -31,7 +31,7 @@ services:
   whoami:
     image: "traefik/whoami"
     networks:
-      - proxy
+      - traefik_default
     deploy:
       mode: replicated
       replicas: 4
@@ -48,5 +48,5 @@ services:
         - "traefik.http.routers.whoami.entrypoints=web"
 
 networks:
-  proxy:
+  traefik_default:
     external: true

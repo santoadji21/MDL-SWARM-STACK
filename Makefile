@@ -9,4 +9,10 @@ network:
 			docker network create -d overlay traefik-proxy
 			docker network create -d overlay database
 
+whoami:
+			docker stack deploy --compose-file=whoami-stack.yml whoami
+
+wn: 
+			docker network create -d overlay traefik_default
+
 # docker service ps --filter "desired-state=running" 
