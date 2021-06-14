@@ -47,6 +47,25 @@ services:
         - traefik.http.services.whoami.loadbalancer.server.port=80
         - "traefik.http.routers.whoami.rule=Host(`3.0.19.115`)"
         - "traefik.http.routers.whoami.entrypoints=web"
+  alpine:
+    image: "alpine"
+    networks:
+      - traefik_default
+    deploy:
+      mode: replicated
+      replicas: 2
+      placement:
+        max_replicas_per_node: 2
+        constraints:
+          - node.role == worker
+      labels:
+        # traefik.enable=true and constraint label are needed because
+        # of the restrictions we enforced in our traefik configuration
+        # - traefik.docker.network=traefik_default
+        # - traefik.enable=true
+        # - traefik.http.services.whoami.loadbalancer.server.port=80
+        # - "traefik.http.routers.whoami.rule=Host(`3.0.19.115`)"
+        # - "traefik.http.routers.whoami.entrypoints=web"
 
 networks:
   traefik_default:
