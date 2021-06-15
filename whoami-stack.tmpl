@@ -45,7 +45,7 @@ services:
         - traefik.docker.network=traefik_default
         - traefik.enable=true
         - traefik.http.services.whoami.loadbalancer.server.port=80
-        - "traefik.http.routers.whoami.rule=Host(`18.139.114.132`)"
+        - "traefik.http.routers.whoami.rule=Host(`${manager}`)"
         - "traefik.http.routers.whoami.entrypoints=web"
 
 networks:
