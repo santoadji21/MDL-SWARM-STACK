@@ -78,7 +78,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.moodle.rule=Host(`alkahfistudio.my.id`)"
+        - "traefik.http.routers.moodle.rule=Host(`course.alkahfistudio.my.id`)"
         - "traefik.http.routers.moodle.entrypoints=web"
         - "traefik.http.services.moodle.loadbalancer.server.port=8181"
       mode: replicated
