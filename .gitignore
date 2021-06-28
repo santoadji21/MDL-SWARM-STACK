@@ -1,1 +1,4 @@
 aws/*
+resource/*
+/*.php
+docker-compose.yml
