@@ -78,7 +78,7 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
       - MOODLE_USERNAME=adji21
       - MOODLE_PASSWORD=Adminadji21
-      - MOODLE_EMAIL=ikhwangaul21@gmail.com
+      - MOODLE_EMAIL=ahmad21@student.ub.ac.id
       - MOODLE_SITE_NAME='Moodle Cluster Docker Swarm'
     volumes:
       - "moodle_data_swm:/bitnami/moodle"
