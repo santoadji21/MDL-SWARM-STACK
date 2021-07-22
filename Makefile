@@ -5,6 +5,8 @@
 
 deploy:
 			docker stack deploy --compose-file=mdl-stackfile.yml moodle
+update:
+			docker stack deploy --compose-file=mdl-stackfile-update.yml moodle
 rm: 
 			docker stack rm moodle
 ls: 
